@@ -2,6 +2,7 @@ package ru.samsonium.primate.auth;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.samsonium.primate.auth.commands.LoginCmd;
+import ru.samsonium.primate.auth.commands.RegCmd;
 
 import java.sql.SQLException;
 import java.util.Objects;
@@ -19,6 +20,7 @@ public final class PrimateAuth extends JavaPlugin {
         }
 
         Objects.requireNonNull(getCommand("login")).setExecutor(new LoginCmd());
+        Objects.requireNonNull(getCommand("reg")).setExecutor(new RegCmd());
     }
 
     @Override

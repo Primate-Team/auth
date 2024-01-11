@@ -6,3 +6,6 @@ commands:
   login:
     description: Авторизоваться в игре
     usage: /<command> <пароль>
+  reg:
+    description: Зарегистрироваться в игре
+    usage: /<command> <пароль>
