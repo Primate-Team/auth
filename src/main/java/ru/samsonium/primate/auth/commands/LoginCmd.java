@@ -42,9 +42,14 @@ public class LoginCmd implements CommandExecutor {
             return true;
         }
 
+        if (profile.isInGame) {
+            commandSender.sendMessage(text("Вы уже вошли!", GOLD));
+            return true;
+        }
+
         profile.updateLastLogin();
         p.sendMessage(text("Вход выполнен", GREEN));
-        p.setMetadata("auth", new FixedMetadataValue(PrimateAuth.get(), this));
+        p.setMetadata("auth", new FixedMetadataValue(PrimateAuth.get(), "ya"));
 
         return true;
     }
