@@ -1,8 +1,10 @@
 package ru.samsonium.primate.auth;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import ru.samsonium.primate.auth.commands.LoginCmd;
 
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.logging.Level;
 
 public final class PrimateAuth extends JavaPlugin {
@@ -15,6 +17,8 @@ public final class PrimateAuth extends JavaPlugin {
             getLogger().log(Level.SEVERE, "Connection to database failed. Disabling plugin");
             getServer().getPluginManager().disablePlugin(this);
         }
+
+        Objects.requireNonNull(getCommand("login")).setExecutor(new LoginCmd());
     }
 
     @Override
