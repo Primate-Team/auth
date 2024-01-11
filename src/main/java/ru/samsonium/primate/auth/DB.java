@@ -94,13 +94,15 @@ public class DB {
     /**
      * Adds new player to database
      * @param uuid Player ID
+     * @param password Password
      */
-    public void addPlayer(String uuid) {
-        String sql = "INSERT INTO profiles(uuid, last_login, in_game) VALUES (?, ?, ?)";
+    public void addPlayer(String uuid, String password) {
+        String sql = "INSERT INTO profiles(uuid, password, last_login, in_game) VALUES (?, ?, ?, ?)";
         try (PreparedStatement stmt = cn.prepareStatement(sql)) {
             stmt.setString(1, uuid);
-            stmt.setString(2, Instant.now().toString());
-            stmt.setInt(3, 1);
+            stmt.setString(2, password);
+            stmt.setString(3, Instant.now().toString());
+            stmt.setInt(4, 1);
             stmt.executeUpdate();
         } catch (SQLException e) {
             PrimateAuth.get().getLogger().log(Level.SEVERE, e.getMessage());

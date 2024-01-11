@@ -34,7 +34,7 @@ public class RegCmd implements CommandExecutor {
             return true;
         }
 
-        DB.get().addPlayer(p.getUniqueId().toString());
+        DB.get().addPlayer(p.getUniqueId().toString(), pass);
         p.setMetadata("auth", new FixedMetadataValue(PrimateAuth.get(), "ya"));
         p.sendMessage(text("Вы успешно зарегистрировались", GREEN));
 
