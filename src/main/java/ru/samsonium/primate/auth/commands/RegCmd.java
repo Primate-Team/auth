@@ -30,7 +30,8 @@ public class RegCmd implements CommandExecutor {
         Player p = (Player) commandSender;
         Profile profile = DB.get().getPlayer(p.getUniqueId().toString());
         if (profile != null) {
-            p.sendMessage(text("Такой игрок уже существует", GOLD));
+            if (p.hasMetadata("auth")) p.sendMessage(text("Вы уже вошли", GOLD));
+            else p.sendMessage(text("Такой игрок уже существует", GOLD));
             return true;
         }
 
