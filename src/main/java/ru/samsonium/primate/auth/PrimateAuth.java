@@ -4,6 +4,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import ru.samsonium.primate.auth.commands.LoginCmd;
 import ru.samsonium.primate.auth.commands.RegCmd;
 import ru.samsonium.primate.auth.listeners.JoinLeaveListener;
+import ru.samsonium.primate.auth.listeners.NotSignedInListener;
 
 import java.sql.SQLException;
 import java.util.Objects;
@@ -24,6 +25,7 @@ public final class PrimateAuth extends JavaPlugin {
         Objects.requireNonNull(getCommand("reg")).setExecutor(new RegCmd());
 
         getServer().getPluginManager().registerEvents(new JoinLeaveListener(), this);
+        getServer().getPluginManager().registerEvents(new NotSignedInListener(), this);
     }
 
     @Override
