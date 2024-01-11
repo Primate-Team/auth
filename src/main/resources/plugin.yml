@@ -1,0 +1,4 @@
+name: PrimateAuth
+version: '${project.version}'
+main: ru.samsonium.primate.auth.PrimateAuth
+api-version: '1.20'
